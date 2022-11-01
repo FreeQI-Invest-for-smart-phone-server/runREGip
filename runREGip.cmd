@@ -39,5 +39,5 @@
 @REM | Use NGROK : https://dashboard.ngrok.com/get-started/setup                                          |
 @REM | STATUS    : http://127.0.0.1:4040/status                                                           |
 @REM  =====================================================================================================
-@REM
+@C:\extraNET\bin\ngrok\ngrok.exe http https://freeq.gq:443 -region=eu -log=stdout
 @REM Laste update saturday, 26 octobre, 2022
