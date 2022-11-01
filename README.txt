@@ -1,40 +1,6 @@
+The script updates the %WAN_IPs% variable directly in the Windows Registry. (You can add this variable). This is a small batch program that I modified/created from command lines .CMD .REG .VBS
 
-  |=========================================================|
-  |			    README			    |
-  |=========================================================|
-       _________________   __    __   __       ________
-      |   __   |   __   | |  |__|  | |  |     |   __   |
-      |  |  |  |  |  |  | |__    __| |  |     |  |  |  |
-      |  |  |  |  |  |  |    |  |    |  |___  |  |__|  |
-      |__|  |__|__|  |__|    |__|    |______| |________|
-
-  |=========================================================|
-  |			         			    |
-  |=========================================================|
-
-  < MYLO > C'est plusieurs petits programmes batch qui ont été 
-	   créer en ligne de commande.cmd ou .reg
-
-   - Veuillez modifier le PATH relatif avant éxécution.
-  
-   - Pour rechercher l'adresse IP public du smartphone et la 
-     transférer dans une variable system : WAN_IPs :
-  	
-     ---> lancer pour un démarrage lors du boot :  
-	  \mylo\runWANip\runWANip.cmd  (modifier le PATH)
-
-     ---> lancer pour supprimer le démarrage lors du boot :  
-	  \mylo\runWANip\UnrunWANip.cmd  (modifier les chemins)
-
-
-   - Pour que le programme s'exécute à chaque démarage de votre PC, 
-
-	  ---> lancer le fichier : runWANip.reg (modifier le PATH)
-          ---> pour le supprimer : delWANip.reg 
-
-
-  |=========================================================|
-  |   Laurent PERRET by sysadmsy6@gmail.com - 08-05.2022    |
-  |                    ALL Right Reserved                   |
-  |=========================================================|
-
+Please modify the relative PATH before executing the script: runREGip.reg which automatically launches the runREGip.cmd program when the pc starts.
+Very useful for finding the dynamic public IP address of your smartphone or iphone connected by cable to your PC,
+the script transfers the IP address to a system variable when your notebook starts: %WAN_IPs%
+which you can add and use under ( Apache in httpd .conf) under the variable name $WAN_IPs. You can also use it in DOS using %WAN_IPs%
