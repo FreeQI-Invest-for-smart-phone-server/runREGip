@@ -1,9 +1,9 @@
 @cls
 @echo off
 @REM ======================================================================================================
-@REM | Invention & Creation of the script with its variables						                                  |
-@REM | Copyright(c) All rights reserved by Laurent PERRET.  					                                    |
-@REM | Licence GNU Public.                        	                                       		            |
+@REM | Invention & Creation of the script with its variables						  |
+@REM | Copyright(c) All rights reserved by Laurent PERRET.  					          |
+@REM | Licence GNU Public.                        	                                       		  |
 @REM ======================================================================================================
 @REM
 @REM ======================================================================================================
@@ -15,7 +15,7 @@
 @REM ======================================================================================================
 @REM |  VERY IMPORTANT - ON RESTART - THE SCRIPT STORES THE DYNAMIC IP ADDRESS IN A SYSTEM VARIABLE.      |
 @REM ======================================================================================================
-@REM | SCRIPT <runREGip.cmd> 									                                                            |
+@REM | SCRIPT <runREGip.cmd> 									          |
 @REM | Creation of the variable: WAN_IPs which contains the public IP address of the smartphone/iphone 	  |
 @REM | you have connected with the USB cable to your PC with the Internet USB Sharing option              |
 @REM | The USB connection must be activated in the configuration under your smartphone.                   |
@@ -35,7 +35,7 @@
 @REM  =====================================================================================================
 @REM | Then I use the only redirection software so that my site is on the unlimited line of my            |
 @REM | internet package in my smartphone/iphone.                                                          |
-@REM |====================================================================================================|
+@REM  =====================================================================================================
 @REM | FORWARD                                                                                            |
 @REM |====================================================================================================|
 @REM | Download  : https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-windows-amd64.zip                 |
