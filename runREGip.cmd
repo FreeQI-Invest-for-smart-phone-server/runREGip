@@ -5,7 +5,9 @@
 @REM | Copyright(c) All rights reserved by Laurent PERRET.  					          |
 @REM | Licence GNU Public.                        	                                       		  |
 @REM ======================================================================================================
-@REM
+@REM | VERY IMPORTANT !                                                                                   |
+@REM | The execution of this script is carried out in the boot of the pc to update 2 variables in the     |
+@REM | system, this is what guarantees the proper functioning of the whole.                               |
 @REM ======================================================================================================
 @REM | It's dynamic! The IP address has changed, so I deleted the folder and the file space they occupied.|
 @REM ======================================================================================================
