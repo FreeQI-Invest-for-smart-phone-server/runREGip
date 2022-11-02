@@ -32,6 +32,14 @@
 @xcopy C:\extraNET\wwc\freeq\192.168.56.1.freeq  C:\extraNET\wwc\freeq\freeq.%WAN_IPs%.freeq /Y /e /k /i /c
 @xcopy C:\extraNET\wwc\192.168.56.1.freeq  C:\extraNET\wwc\freeq.%WAN_IPs%.freeq /Y /e /k /i /c
 
+@REM =====================================================
+@REM | Your Smartphone or Iphone                         | 
+@REM =====================================================
+@cls 
+@echo Your address is : %WAN_IPs%
+@echo Your ReversHost is : %WAN_REVERSE_IPs% 
+@pause
+
 @REM  =====================================================================================================
 @REM | Then I use the only redirection software so that my site is on the unlimited line of my            |
 @REM | internet package in my smartphone/iphone.                                                          |
