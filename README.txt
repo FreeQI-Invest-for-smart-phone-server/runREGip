@@ -26,5 +26,6 @@ Do not execute directly. Use the variables that will be useful for you.
 
     - env-complet-winx64-pro.reg  <== ( Do not run! Contains my environment unless you have an HP i7 AMD INTEL CORE SSD X64 ).
     
-    Use winmerge to compare with your file https://winmerge.org/downloads/?lang=fr 
+    Use winmerge to compare with your file https://winmerge.org/downloads/?lang=fr
+    - Compare my env-complet-winx64-pro.reg the file you will have created with runHKLM
     - https://github.com/https-github-com-freeq/runHKLM/blob/main/run-HKLM.cmd
