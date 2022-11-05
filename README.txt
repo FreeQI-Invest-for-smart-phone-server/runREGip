@@ -15,9 +15,7 @@ This is a small batch program that I modified/created from command lines .CMD .R
 	</VirtualHost>
       
     - run at startup during boot, update the variable    : runREGip.cmd (edit the PATH)
-    - For the program to run each time you start your PC : runWANip.reg (edit the PATH) 
 
- 
 My Environment in different forms for LARAGON in the extraNET folder
 
 Do not execute directly. Use the variables that will be useful for you.
