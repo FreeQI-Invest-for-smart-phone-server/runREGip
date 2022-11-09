@@ -35,7 +35,7 @@ This is a small batch program that I modified/created from command lines .CMD .R
 	<VirtualHost _default_:8080>
 	#   FTP On
 	#   ProxyPreserveHost On
-	#   ProxyPass        "/" "http://192.168.111.2/"
+	#   ProxyPass        "/" "http://192.168.111.1/"
 	#   ProxyPassReverse "/" "http://192.168.111.2/"
 	ServerName $WAN_IPs:8080
 	ServerAlias $WAN_IPs localhost you-server.com
