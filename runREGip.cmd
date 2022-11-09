@@ -5,15 +5,13 @@
 @REM | Copyright(c) All rights reserved by Laurent PERRET.  					          |
 @REM | Licence GNU Public.                        	                                       		  |
 @REM ======================================================================================================
-@REM | VERY IMPORTANT !                                                                                   |
-@REM | The execution of this script is carried out in the boot of the pc to update 2 variables in the     |
-@REM | system, this is what guarantees the proper functioning of the whole.                               |
+@REM
 @REM ======================================================================================================
 @REM | It's dynamic! The IP address has changed, so I deleted the folder and the file space they occupied.|
 @REM ======================================================================================================
 @rm -rf C:\extraNET\wwc\freeq.%WAN_IPs%.freeq
 @rm -rf C:\extraNET\wwc\freeq\freeq.%WAN_IPs%.freeq
-
+@rem rm -rf C:\extraNET\wwc\freeq.%WAN_IPs%.freeq\%WAN_IPs%.freeq.htaccess
 @REM ======================================================================================================
 @REM |  VERY IMPORTANT - ON RESTART - THE SCRIPT STORES THE DYNAMIC IP ADDRESS IN A SYSTEM VARIABLE.      |
 @REM ======================================================================================================
@@ -33,25 +31,30 @@
 @REM ======================================================================================================
 @xcopy C:\extraNET\wwc\freeq\192.168.56.1.freeq  C:\extraNET\wwc\freeq\freeq.%WAN_IPs%.freeq /Y /e /k /i /c
 @xcopy C:\extraNET\wwc\192.168.56.1.freeq  C:\extraNET\wwc\freeq.%WAN_IPs%.freeq /Y /e /k /i /c
+@rem copy C:\extraNET\wwc\freeq\192.168.56.1.freeq\  C:\extraNET\wwc\freeq\%WAN_IPs%.freeq.htaccess
 
+@REM
 @REM =====================================================
 @REM | Your Smartphone or Iphone                         | 
 @REM =====================================================
 @cls 
-@echo Your address is : %WAN_IPs%
-@echo Your ReversHost is : %WAN_REVERSE_IPs% 
+@echo Your address IPV4 is : %WAN_IPs%
+@echo Your adresse IPV6 is : %WAN_IPs_IPV6%
+@echo Your Revers Host  is : %WAN_REVERSE_IPs% 
 @pause
-
+@REM
 @REM  =====================================================================================================
 @REM | Then I use the only redirection software so that my site is on the unlimited line of my            |
 @REM | internet package in my smartphone/iphone.                                                          |
 @REM  =====================================================================================================
-@REM | FORWARD - https://ngrok.com/download                                                               |
-@REM |====================================================================================================|
-@REM | Download  : https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-windows-amd64.zip                 |
+@REM  
+@REM ======================================================================================================
+@REM | FORWARD   : Your data                                                                              |
+@REM ======================================================================================================
+@rem | Download  : https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-windows-amd64.zip                 |
 @REM | Use NGROK : https://dashboard.ngrok.com/get-started/setup                                          |
 @REM | STATUS    : http://127.0.0.1:4040/status                                                           |
-@REM  =====================================================================================================
+@REM ======================================================================================================
 @C:\extraNET\bin\ngrok\ngrok.exe http https://yourdomaine.com:443 -region=eu -log=stdout
-
-@REM Last updated Tuesday, November 1, 2022
+@REM
+@REM Laste update saturday, 26 octobre, 2022
