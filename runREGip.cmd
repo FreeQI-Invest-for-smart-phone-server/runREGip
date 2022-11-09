@@ -39,7 +39,6 @@
 @REM =====================================================
 @cls 
 @echo Your address IPV4 is : %WAN_IPs%
-@echo Your adresse IPV6 is : %WAN_IPs_IPV6%
 @echo Your Revers Host  is : %WAN_REVERSE_IPs% 
 @pause
 @REM
