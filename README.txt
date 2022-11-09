@@ -6,6 +6,8 @@ This is a small batch program that I modified/created from command lines .CMD .R
    - the script transfers the IP address to a system variable when your notebook starts: %WAN_IPs% 
    - which you can add and use under ( Apache in httpd .conf) under the variable name $WAN_IPs. You can also use it in DOS using %WAN_IPs%
 
+#Minimum requirements
+
 	Listen $WAN_IPs:8080
 	NameVirtualHost $WAN_IPs:8080
 	
@@ -13,9 +15,57 @@ This is a small batch program that I modified/created from command lines .CMD .R
 	   ServerName you-server.com:8080
 	   ServerAlias $WAN_IPs localhost you-server.com
 	</VirtualHost>
-      
+
+# httpd.conf
+
+	Listen [::1]:8080 ftp
+	AcceptFilter ftp none
+
+	#<VirtualHost *:21>
+	#	FTP On
+	#	Listen 21 ftp
+	#	AcceptFilter ftp none
+	#</VirtualHost>
+
+	<VirtualHost _default_:8080>
+		ServerName _default_:8080
+		ServerAlias _default_:8080
+	</VirtualHost>
+
+	<VirtualHost _default_:8080>
+	#   FTP On
+	#   ProxyPreserveHost On
+	#   ProxyPass        "/" "http://192.168.111.2/"
+	#   ProxyPassReverse "/" "http://192.168.111.2/"
+	ServerName $WAN_IPs:8080
+	ServerAlias $WAN_IPs localhost you-server.com
+	</VirtualHost>
+	
+	#<VirtualHost _default_:80>
+	#	ServerName $WAN_IPs:80
+	#	ServerAlias $WAN_IPs localhost you-server.com
+	#</VirtualHost>
+
+	<VirtualHost _default_:447>
+		ServerName $WAN_IPs:447
+		ServerAlias $WAN_IPs localhost you-server.com
+	</VirtualHost>
+
+	<IfModule mod_setenvif.c>
+		BrowserMatch "Mozilla/2" nokeepalive
+    		BrowserMatch "MSIE 4\.0b2;" nokeepalive downgrade-1.0 force-response-1.0
+    		BrowserMatch "RealPlayer 4\.0" force-response-1.0
+    		BrowserMatch "Java/1\.0" force-response-1.0
+    		BrowserMatch "JDK/1\.0" force-response-1.0
+	</IfModule>
+
+	<IfDefine SSL>
+   		Listen 447 ftp
+	</IfDefine>
+
     - run at startup during boot, update the variable    : runREGip.cmd (edit the PATH)
 
+ 
 My Environment in different forms for LARAGON in the extraNET folder
 
 Do not execute directly. Use the variables that will be useful for you.
@@ -26,6 +76,8 @@ Do not execute directly. Use the variables that will be useful for you.
 
     - env-complet-winx64-pro.reg  <== ( Do not run! Contains my environment unless you have an HP i7 AMD INTEL CORE SSD X64 ).
     
-    Use winmerge to compare with your file https://winmerge.org/downloads/?lang=fr
+    Use winmerge to compare with your file https://winmerge.org/downloads/?lang=fr 
     - Compare my env-complet-winx64-pro.reg the file you will have created with runHKLM
     - https://github.com/https-github-com-freeq/runHKLM/blob/main/run-HKLM.cmd
+    
+    - A server capable of comparing our system environment variables.
