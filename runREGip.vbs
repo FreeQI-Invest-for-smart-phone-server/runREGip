@@ -3,8 +3,6 @@
 'REM | Copyright(c) All rights reserved by Laurent PERRET.  			    |
 'REM | Licence GNU Public.                        	                            |
 'REM ================================================================================
-'REM
-'REM ================================================================================
 'REM | To retrieve the dynamic public IP address of your Smartphone OR iphone       |
 'REM | when you start the PC  (put this IP to a system variable)                    |
 'REM | This script will create %WAN_IPs% (variable in windows environment).         |
@@ -32,10 +30,20 @@ Set p = CreateObject("MSXML2.XMLHTTP")
 p.open "GET", "https://ipinfo.io/" & o.responseText & "/hostname?token=a7f8d904f192f4", False
 p.send
 
+'REM ===============================================
+'REM | Get the reverse host IPV& : $WAN_IPs_IPV6   |
+'REM ===============================================
+
+'REM ==================
+'REM | Get route host |
+'REM ==================
+
 Dim objReg
 Set objReg=GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\default:StdRegProv")
 RegWrite "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment", "WAN_IPs", "REG_SZ", o.responseText
-RegWrite "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment", "WAN_REVERSE_IPs", "REG_SZ", p.responseText
+RegWrite "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment", "WAN_REVERSE_IPs", "REG_SZ", q.responseText
+'RegWrite "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment", "WAN_IPs_IPV6", "REG_SZ", p.responseText
+'RegWrite "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment", "WAN_DNS_IPs", "REG_SZ", r.responseText
 
 Function RegWrite(reg_keyname, reg_valuename,reg_type,ByVal reg_value)
 	Dim aRegKey, Return
