@@ -33,7 +33,7 @@
 
 # Minimum requirements
 
-	Listen 0.0.0.0:8088 ftp
+	Listen 0.0.0.0:8080 ftp
 	#
 	AcceptFilter ftp none
 	AcceptFilter http httpready
