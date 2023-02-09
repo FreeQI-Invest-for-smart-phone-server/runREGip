@@ -33,27 +33,17 @@
 
 # Minimum requirements
 
-	Listen MYIP:8080
-	NameVirtualHost $WAN_IPs:8080
-	
-	<VirtualHost _default_:8080>
-	   ServerName you-server.com:8080
-	   ServerAlias $WAN_IPs localhost you-server.com
-	</VirtualHost>
-
-# httpd.conf
-
-	Listen MYIP:8080 ftp
+	Listen 0.0.0.0:8088 ftp
 	#
 	AcceptFilter ftp none
 	AcceptFilter http httpready
 	AcceptFilter https dataready
 	#
-	<VirtualHost MYIP:447>
+	<VirtualHost _default_:447>
 		ServerName _default_:447
-		ServerAlias _default_:447
+		ServerAlias _default_:447  ${WAN_IPs}:447 localhost:447 ${WAN_REVERSE_IPs}:447
 	</VirtualHost>
-
+	#
 	<IfModule mod_setenvif.c>
 		BrowserMatch "Mozilla/2" nokeepalive
 	    BrowserMatch "MSIE 4\.0b2;" nokeepalive downgrade-1.0 force-response-1.0
@@ -61,11 +51,6 @@
 	    BrowserMatch "Java/1\.0" force-response-1.0
 	    BrowserMatch "JDK/1\.0" force-response-1.0
 	</IfModule>
-	
-	#<IfDefine SSL>
-	#   Listen 82 ftp
-	#   Listen 443
-	#</IfDefine>
 
     	- run at startup during boot, update the variable    : runREGip.cmd (edit the PATH)
 
