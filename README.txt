@@ -41,7 +41,7 @@
 	#
 	<VirtualHost _default_:447>
 		ServerName _default_:447
-		ServerAlias _default_:447  ${WAN_IPs}:447 localhost:447 ${WAN_REVERSE_IPs}:447
+		ServerAlias _default_:447 ${WAN_IPs}:447 localhost:447 ${WAN_REVERSE_IPs}:447
 	</VirtualHost>
 	#
 	<IfModule mod_setenvif.c>
