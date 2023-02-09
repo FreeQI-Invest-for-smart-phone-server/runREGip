@@ -20,9 +20,20 @@
    	- which you can add and use under ( Apache in httpd .conf) under the variable name $WAN_IPs. 
 	- You can also use it in DOS using %WAN_IPs%
 
+# Variables to have pre-declared under bash
+
+	Define MYIP "${WAN_IPs}"
+	Define REVIP "${WAN_REVERSE_IPs}"
+	Define APACHE24 "Apache"
+	Define VERSION_APACHE "httpd-2.4.39-win64-VC15"
+	Define INSTALL_DIR "C:/extraNET/bin"
+	Define APACHE_DIR "${INSTALL_DIR}/$(APACHE24)/$(VERSION_APACHE)"
+	Define APACHE_RUN_USER
+	Define APACHE_RUN_GROUP
+
 # Minimum requirements
 
-	Listen $WAN_IPs:8080
+	Listen MYIP:8080
 	NameVirtualHost $WAN_IPs:8080
 	
 	<VirtualHost _default_:8080>
@@ -32,50 +43,29 @@
 
 # httpd.conf
 
-	Listen [::1]:8080 ftp
+	Listen MYIP:8080 ftp
+	#
 	AcceptFilter ftp none
-
-	#<VirtualHost *:21>
-	#	FTP On
-	#	Listen 21 ftp
-	#	AcceptFilter ftp none
-	#</VirtualHost>
-
-	<VirtualHost _default_:8080>
-		ServerName _default_:8080
-		ServerAlias _default_:8080
-	</VirtualHost>
-
-	<VirtualHost _default_:8080>
-	#   FTP On
-	#   ProxyPreserveHost On
-	#   ProxyPass        "/" "http://192.168.111.1/"
-	#   ProxyPassReverse "/" "http://192.168.111.2/"
-	ServerName $WAN_IPs:8080
-	ServerAlias $WAN_IPs localhost you-server.com
-	</VirtualHost>
-	
-	#<VirtualHost _default_:80>
-	#	ServerName $WAN_IPs:80
-	#	ServerAlias $WAN_IPs localhost you-server.com
-	#</VirtualHost>
-
-	<VirtualHost _default_:447>
-		ServerName $WAN_IPs:447
-		ServerAlias $WAN_IPs localhost you-server.com
+	AcceptFilter http httpready
+	AcceptFilter https dataready
+	#
+	<VirtualHost MYIP:447>
+		ServerName _default_:447
+		ServerAlias _default_:447
 	</VirtualHost>
 
 	<IfModule mod_setenvif.c>
 		BrowserMatch "Mozilla/2" nokeepalive
-    		BrowserMatch "MSIE 4\.0b2;" nokeepalive downgrade-1.0 force-response-1.0
-    		BrowserMatch "RealPlayer 4\.0" force-response-1.0
-    		BrowserMatch "Java/1\.0" force-response-1.0
-    		BrowserMatch "JDK/1\.0" force-response-1.0
+	    BrowserMatch "MSIE 4\.0b2;" nokeepalive downgrade-1.0 force-response-1.0
+	    BrowserMatch "RealPlayer 4\.0" force-response-1.0
+	    BrowserMatch "Java/1\.0" force-response-1.0
+	    BrowserMatch "JDK/1\.0" force-response-1.0
 	</IfModule>
-
-	<IfDefine SSL>
-   		Listen 447 ftp
-	</IfDefine>
+	
+	#<IfDefine SSL>
+	#   Listen 82 ftp
+	#   Listen 443
+	#</IfDefine>
 
     	- run at startup during boot, update the variable    : runREGip.cmd (edit the PATH)
 
