@@ -43,12 +43,12 @@
 	</VirtualHost>
 	#
 	<VirtualHost _default_:8080>
-	#   FTP On
-	#   ProxyPreserveHost On
-	#   ProxyPass        "/" "http://192.168.111.2/"
-	#   ProxyPassReverse "/" "http://192.168.111.2/"
-	    ServerName ${WAN_REVERSE_IPs}:8080
-	    ServerAlias ${WAN_IP}s localhost yourdomain.com
+	#   	FTP On
+	#   	ProxyPreserveHost On
+	#   	ProxyPass        "/" "http://192.168.111.2/"
+	#   	ProxyPassReverse "/" "http://192.168.111.2/"
+	    	ServerName ${WAN_REVERSE_IPs}:8080
+	    	ServerAlias ${WAN_IP}s localhost yourdomain.com
 	</VirtualHost>
 	#
 	<VirtualHost _default_:447>
@@ -58,10 +58,10 @@
 	#
 	<IfModule mod_setenvif.c>
 		BrowserMatch "Mozilla/2" nokeepalive
-	    BrowserMatch "MSIE 4\.0b2;" nokeepalive downgrade-1.0 force-response-1.0
-	    BrowserMatch "RealPlayer 4\.0" force-response-1.0
-	    BrowserMatch "Java/1\.0" force-response-1.0
-	    BrowserMatch "JDK/1\.0" force-response-1.0
+	    	BrowserMatch "MSIE 4\.0b2;" nokeepalive downgrade-1.0 force-response-1.0
+	    	BrowserMatch "RealPlayer 4\.0" force-response-1.0
+	    	BrowserMatch "Java/1\.0" force-response-1.0
+	    	BrowserMatch "JDK/1\.0" force-response-1.0
 	</IfModule>
 
     	- run at startup during boot, update the variable    : runREGip.cmd (edit the PATH)
@@ -83,5 +83,5 @@
     
     - A server capable of comparing our system environment variables.
     
-    - Laste update Wednesday, 09 November 2022
+    - Laste update Wednesday, 05 April 2023
     
