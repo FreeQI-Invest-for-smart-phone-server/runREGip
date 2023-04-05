@@ -24,6 +24,7 @@
 
 	Define MYIP "${WAN_IPs}"
 	Define REVIP "${WAN_REVERSE_IPs}"
+	
 	Define APACHE24 "Apache"
 	Define VERSION_APACHE "httpd-2.4.39-win64-VC15"
 	Define INSTALL_DIR "C:/extraNET/bin"
@@ -33,15 +34,26 @@
 
 # Minimum requirements
 
-	Listen 0.0.0.0:8080 ftp
-	#
+	Listen [::1]:8080 ftp
 	AcceptFilter ftp none
-	AcceptFilter http httpready
-	AcceptFilter https dataready
+	#
+	<VirtualHost _default_:8080>
+		ServerName _default_:8080
+		ServerAlias _default_:8080
+	</VirtualHost>
+	#
+	<VirtualHost _default_:8080>
+	#   FTP On
+	#   ProxyPreserveHost On
+	#   ProxyPass        "/" "http://192.168.111.2/"
+	#   ProxyPassReverse "/" "http://192.168.111.2/"
+	    ServerName ${WAN_REVERSE_IPs}:8080
+	    ServerAlias ${WAN_IP}s localhost yourdomain.com
+	</VirtualHost>
 	#
 	<VirtualHost _default_:447>
-		ServerName _default_:447
-		ServerAlias _default_:447 ${WAN_IPs}:447 localhost:447 ${WAN_REVERSE_IPs}:447
+		ServerName ${WAN_REVERSE_IPs}:447
+		ServerAlias ${WAN_IPs} localhost yourdomaine.com
 	</VirtualHost>
 	#
 	<IfModule mod_setenvif.c>
