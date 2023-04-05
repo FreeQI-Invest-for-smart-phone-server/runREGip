@@ -47,13 +47,13 @@
 	#   	ProxyPreserveHost On
 	#   	ProxyPass        "/" "http://192.168.111.2/"
 	#   	ProxyPassReverse "/" "http://192.168.111.2/"
-	    	ServerName ${WAN_REVERSE_IPs}:8080
-	    	ServerAlias ${WAN_IP}s localhost yourdomain.com
+	    	ServerName $WAN_REVERSE_IPs:8080
+	    	ServerAlias $WAN_IPs localhost yourdomain.com
 	</VirtualHost>
 	#
 	<VirtualHost _default_:447>
-		ServerName ${WAN_REVERSE_IPs}:447
-		ServerAlias ${WAN_IPs} localhost yourdomaine.com
+		ServerName $WAN_REVERSE_IPs:447
+		ServerAlias $WAN_IPs localhost yourdomaine.com
 	</VirtualHost>
 	#
 	<IfModule mod_setenvif.c>
