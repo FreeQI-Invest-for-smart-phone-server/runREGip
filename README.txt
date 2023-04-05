@@ -27,7 +27,7 @@
 	
 	Define APACHE24 "Apache"
 	Define VERSION_APACHE "httpd-2.4.39-win64-VC15"
-	Define INSTALL_DIR "C:/extraNET/bin"
+	Define INSTALL_DIR "C:/YourDirectory/bin"
 	Define APACHE_DIR "${INSTALL_DIR}/$(APACHE24)/$(VERSION_APACHE)"
 	Define APACHE_RUN_USER
 	Define APACHE_RUN_GROUP
