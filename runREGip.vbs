@@ -45,6 +45,7 @@ RegWrite "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\En
 'RegWrite "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment", "WAN_IPs_IPV6", "REG_SZ", p.responseText
 'RegWrite "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment", "WAN_DNS_IPs", "REG_SZ", r.responseText
 
+'REM Script Microsoft
 Function RegWrite(reg_keyname, reg_valuename,reg_type,ByVal reg_value)
 	Dim aRegKey, Return
 	aRegKey = RegSplitKey(reg_keyname)
