@@ -19,7 +19,7 @@ RequireAdmin
 'REM =======================================
 Dim o
 Set o = CreateObject("MSXML2.XMLHTTP")
-o.open "GET", "http://ifconfig.me/ip", False
+o.open "GET", "http://ifconfig.me/ip" & vbCr , False
 o.send
 
 'REM ==========================================
@@ -27,7 +27,7 @@ o.send
 'REM ==========================================
 Dim p
 Set p = CreateObject("MSXML2.XMLHTTP")
-p.open "GET", "https://ipinfo.io/" & o.responseText & "/hostname?token=a7f8d904f192f4", False
+p.open "GET", "https://ipinfo.io/" & o.responseText & "/hostname?token=a7f8d904f192f4" & vbCr , False
 p.send
 
 'REM ===============================================
